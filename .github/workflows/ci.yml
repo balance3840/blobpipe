@@ -1,0 +1,109 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    name: CI (${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: ['22']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test
+
+      - name: Build
+        run: pnpm build
+
+  # Single job that branch protection can require — passes when all matrix jobs pass.
+  ci-status:
+    name: CI status
+    runs-on: ubuntu-latest
+    needs: ci
+    if: always()
+    steps:
+      - name: All CI jobs passed
+        run: |
+          if [[ "${{ needs.ci.result }}" != "success" ]]; then
+            echo "One or more CI jobs failed."
+            exit 1
+          fi
+
+  test-emulators:
+    name: Emulator tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Start emulators
+        run: docker compose -f docker-compose.emulators.yml up -d
+
+      - name: Wait for Localstack
+        run: |
+          echo "Waiting for Localstack..."
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4566/_localstack/health && break
+            sleep 2
+          done
+
+      - name: Wait for Azurite
+        run: |
+          echo "Waiting for Azurite..."
+          for i in $(seq 1 30); do
+            curl -s --head http://127.0.0.1:10000/ > /dev/null 2>&1 && break
+            sleep 2
+          done
+
+      - name: Wait for fake-gcs-server
+        run: |
+          echo "Waiting for fake-gcs-server..."
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:4443/storage/v1/b && break
+            sleep 2
+          done
+
+      - name: Run emulator tests
+        run: pnpm test:emulators
+
+      - name: Stop emulators
+        if: always()
+        run: docker compose -f docker-compose.emulators.yml down

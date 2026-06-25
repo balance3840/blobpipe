@@ -1,0 +1,64 @@
+{
+  "name": "@blobpipe/memory",
+  "version": "0.1.0",
+  "description": "In-memory driver for blobpipe \u2014 no external services, ideal for unit tests.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "keywords": [
+    "storage",
+    "blob",
+    "s3",
+    "gcs",
+    "azure",
+    "file-storage",
+    "blobpipe",
+    "memory",
+    "testing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ramirohococo/blobpipe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ramirohococo/blobpipe/issues"
+  },
+  "homepage": "https://github.com/ramirohococo/blobpipe#readme",
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "pnpm build"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@blobpipe/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "sideEffects": false
+}

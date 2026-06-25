@@ -1,0 +1,17 @@
+services:
+  localstack:
+    image: localstack/localstack:3.8
+    ports: ["4566:4566"]
+    environment:
+      SERVICES: s3
+      DEFAULT_REGION: us-east-1
+
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite:latest
+    ports: ["10000:10000"]
+    command: ["azurite-blob", "--blobHost", "0.0.0.0", "--loose", "--skipApiVersionCheck"]
+
+  fake-gcs-server:
+    image: fsouza/fake-gcs-server:latest
+    ports: ["4443:4443"]
+    command: ["-scheme", "http", "-port", "4443"]
