@@ -1,0 +1,71 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows: [CI]
+    branches: [main]
+    types: [completed]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    # Only proceed when CI actually passed — workflow_run fires on any completion.
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    permissions:
+      contents: write  # push version bump commit and tags
+      id-token: write  # npm provenance (OIDC)
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: pnpm
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Check for pending changesets
+        id: check
+        run: |
+          if find .changeset -name "*.md" ! -name "README.md" | grep -q .; then
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure git
+        if: steps.check.outputs.publish == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Version packages
+        if: steps.check.outputs.publish == 'true'
+        run: |
+          pnpm changeset version
+          git add .
+          git commit -m "chore: release packages"
+          git push
+
+      - name: Publish to npm
+        if: steps.check.outputs.publish == 'true'
+        run: pnpm changeset publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: true
