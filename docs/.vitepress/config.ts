@@ -30,7 +30,7 @@ export default defineConfig({
       { text: 'API', link: '/api/storage-client', activeMatch: '/api/' },
       {
         text: 'GitHub',
-        link: 'https://github.com/ramirohococo/blobpipe',
+        link: 'https://github.com/balance3840/blobpipe',
       },
     ],
 
@@ -96,7 +96,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/ramirohococo/blobpipe' },
+      { icon: 'github', link: 'https://github.com/balance3840/blobpipe' },
     ],
 
     footer: {

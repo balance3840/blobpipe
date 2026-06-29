@@ -35,12 +35,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ramirohococo/blobpipe.git"
+    "url": "https://github.com/balance3840/blobpipe.git"
   },
   "bugs": {
-    "url": "https://github.com/ramirohococo/blobpipe/issues"
+    "url": "https://github.com/balance3840/blobpipe/issues"
   },
-  "homepage": "https://github.com/ramirohococo/blobpipe#readme",
+  "homepage": "https://github.com/balance3840/blobpipe#readme",
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

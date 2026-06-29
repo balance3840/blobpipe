@@ -1,7 +1,7 @@
 # blobpipe
 
 [![npm version](https://img.shields.io/npm/v/blobpipe.svg)](https://www.npmjs.com/package/blobpipe)
-[![CI](https://github.com/ramirohococo/blobpipe/actions/workflows/ci.yml/badge.svg)](https://github.com/ramirohococo/blobpipe/actions/workflows/ci.yml)
+[![CI](https://github.com/balance3840/blobpipe/actions/workflows/ci.yml/badge.svg)](https://github.com/balance3840/blobpipe/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **One API for S3, Google Cloud Storage, Azure Blob, local disk, and in-memory storage.**
