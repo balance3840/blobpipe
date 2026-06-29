@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { Readable } from 'node:stream';
 import { MemoryDriver } from '../src/index.js';
-import type { StorageDriver } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
 
 async function collect(stream: Readable): Promise<string> {
   const chunks: Buffer[] = [];

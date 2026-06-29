@@ -36,7 +36,7 @@ Fields you can mutate:
 ## Attaching middleware
 
 ```typescript
-import { StorageClient, logUploads, maxFileSize, validateMimeType } from '@blobpipe/core'
+import { StorageClient, logUploads, maxFileSize, validateMimeType } from '@restrella/blobpipe'
 
 const storage = new StorageClient(driver)
   .use(validateMimeType({ allowed: ['image/png', 'image/jpeg'] }))
@@ -80,7 +80,7 @@ const storage = new StorageClient(driver)
 Throw `MiddlewareRejectionError` to reject an upload with a machine-readable code:
 
 ```typescript
-import { MiddlewareRejectionError } from '@blobpipe/core'
+import { MiddlewareRejectionError } from '@restrella/blobpipe'
 
 const rejectSvg: Middleware = async (ctx, next) => {
   if (ctx.options.contentType === 'image/svg+xml') {
@@ -96,7 +96,7 @@ const rejectSvg: Middleware = async (ctx, next) => {
 The caller catches it as:
 
 ```typescript
-import { MiddlewareRejectionError } from '@blobpipe/core'
+import { MiddlewareRejectionError } from '@restrella/blobpipe'
 
 try {
   await storage.put('image.svg', data, { contentType: 'image/svg+xml' })
@@ -111,7 +111,7 @@ try {
 ## Writing custom middleware
 
 ```typescript
-import type { Middleware } from '@blobpipe/core'
+import type { Middleware } from '@restrella/blobpipe'
 
 // Simple "pre" middleware — runs before the driver
 const addUploadedBy: Middleware = async (ctx, next) => {
@@ -130,7 +130,7 @@ const timeUpload: Middleware = async (ctx, next) => {
 }
 
 // Configurable middleware using MiddlewareFactory
-import type { MiddlewareFactory } from '@blobpipe/core'
+import type { MiddlewareFactory } from '@restrella/blobpipe'
 
 interface AddTagOptions {
   tag: string

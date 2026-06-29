@@ -23,12 +23,12 @@ import type {
   ListPage,
   DeleteManyOptions,
   DeleteManyResult,
-} from '@blobpipe/core'
+} from '@restrella/blobpipe'
 import {
   ObjectNotFoundError,
   StorageOperationError,
   InvalidKeyError,
-} from '@blobpipe/core'
+} from '@restrella/blobpipe'
 
 export class MyDriver implements StorageDriver {
   readonly name = 'my-driver'
@@ -162,7 +162,7 @@ function mapError(err: unknown, key: string, driver: string): never {
 If your driver holds connections that need teardown, implement `Disposable`:
 
 ```typescript
-import type { Disposable } from '@blobpipe/core'
+import type { Disposable } from '@restrella/blobpipe'
 
 export class MyDriver implements StorageDriver, Disposable {
   private client: SomeSDKClient
@@ -180,7 +180,7 @@ export class MyDriver implements StorageDriver, Disposable {
 If you only need to override some methods, extend `StorageDriverDecorator`:
 
 ```typescript
-import { StorageDriverDecorator } from '@blobpipe/core'
+import { StorageDriverDecorator } from '@restrella/blobpipe'
 
 export class PrefixingDriver extends StorageDriverDecorator {
   readonly name: string

@@ -30,7 +30,7 @@ import {
   InvalidKeyError,
   StorageOperationError,
   StorageError,
-} from '@blobpipe/core'
+} from '@restrella/blobpipe'
 
 try {
   const stream = await storage.get('uploads/photo.jpg')
@@ -55,7 +55,7 @@ try {
 Use `ifNoneMatch: '*'` to prevent overwriting an existing object:
 
 ```typescript
-import { ObjectAlreadyExistsError } from '@blobpipe/core'
+import { ObjectAlreadyExistsError } from '@restrella/blobpipe'
 
 try {
   await storage.put('config.json', data, {
@@ -75,7 +75,7 @@ try {
 
 ```typescript
 import express from 'express'
-import { ObjectNotFoundError, AccessDeniedError, StorageError, MiddlewareRejectionError } from '@blobpipe/core'
+import { ObjectNotFoundError, AccessDeniedError, StorageError, MiddlewareRejectionError } from '@restrella/blobpipe'
 
 const app = express()
 
@@ -119,7 +119,7 @@ app.post('/upload', async (req, res) => {
 
 ```typescript
 import Fastify from 'fastify'
-import { ObjectNotFoundError, AccessDeniedError, StorageError, MiddlewareRejectionError } from '@blobpipe/core'
+import { ObjectNotFoundError, AccessDeniedError, StorageError, MiddlewareRejectionError } from '@restrella/blobpipe'
 
 const app = Fastify()
 
@@ -145,7 +145,7 @@ app.setErrorHandler((err, request, reply) => {
 Thrown by middleware (not by drivers) when an upload is rejected — for example, a disallowed MIME type or a file that's too large. It has a `code` property for programmatic handling:
 
 ```typescript
-import { MiddlewareRejectionError } from '@blobpipe/core'
+import { MiddlewareRejectionError } from '@restrella/blobpipe'
 
 try {
   await storage.put('file.exe', data, { contentType: 'application/octet-stream' })

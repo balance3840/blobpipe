@@ -1,18 +1,18 @@
-# @blobpipe/core
+# @restrella/blobpipe
 
 Core abstractions for blobpipe — the `StorageDriver` interface, `StorageClient` wrapper, middleware pipeline, built-in middleware, errors, and utilities.
 
 ## Installation
 
 ```bash
-npm install @blobpipe/core
+npm install @restrella/blobpipe
 ```
 
 ## Usage
 
 ```typescript
-import { StorageClient, maxFileSize, validateMimeType } from '@blobpipe/core';
-import { MemoryDriver } from '@blobpipe/memory';
+import { StorageClient, maxFileSize, validateMimeType } from '@restrella/blobpipe';
+import { MemoryDriver } from '@restrella/blobpipe-memory';
 
 const client = new StorageClient(new MemoryDriver())
   .use(maxFileSize({ maxBytes: 5 * 1024 * 1024 }))

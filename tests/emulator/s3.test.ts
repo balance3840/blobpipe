@@ -1,6 +1,6 @@
 import { describe, beforeAll, afterAll } from 'vitest';
 import { S3Client, CreateBucketCommand } from '@aws-sdk/client-s3';
-import { S3Driver } from '@blobpipe/s3';
+import { S3Driver } from '@restrella/blobpipe-s3';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 const LOCALSTACK_URL = 'http://localhost:4566';

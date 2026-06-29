@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { RetryingDriver, ObjectNotFoundError, AccessDeniedError, StorageClient } from '@blobpipe/core';
-import { MemoryDriver } from '@blobpipe/memory';
+import { RetryingDriver, ObjectNotFoundError, AccessDeniedError, StorageClient } from '@restrella/blobpipe';
+import { MemoryDriver } from '@restrella/blobpipe-memory';
 
 describe('RetryingDriver', () => {
   it('exposes a name that includes the inner driver name', () => {

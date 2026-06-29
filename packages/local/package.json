@@ -1,5 +1,5 @@
 {
-  "name": "@blobpipe/local",
+  "name": "@restrella/blobpipe-local",
   "version": "0.1.0",
   "description": "Local filesystem driver for blobpipe.",
   "license": "MIT",
@@ -50,7 +50,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@blobpipe/core": "workspace:*"
+    "@restrella/blobpipe": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.20.0",

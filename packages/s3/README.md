@@ -1,18 +1,18 @@
-# @blobpipe/s3
+# @restrella/blobpipe-s3
 
 Amazon S3 (and S3-compatible) storage driver for blobpipe. Works with AWS S3, Cloudflare R2, MinIO, DigitalOcean Spaces, and any S3-compatible endpoint.
 
 ## Installation
 
 ```bash
-npm install @blobpipe/s3 @aws-sdk/client-s3 @aws-sdk/s3-request-presigner @aws-sdk/lib-storage
+npm install @restrella/blobpipe-s3 @aws-sdk/client-s3 @aws-sdk/s3-request-presigner @aws-sdk/lib-storage
 ```
 
 ## Usage
 
 ```typescript
-import { StorageClient } from '@blobpipe/core';
-import { S3Driver } from '@blobpipe/s3';
+import { StorageClient } from '@restrella/blobpipe';
+import { S3Driver } from '@restrella/blobpipe-s3';
 
 const client = new StorageClient(
   new S3Driver({

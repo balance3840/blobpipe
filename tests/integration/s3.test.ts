@@ -1,5 +1,5 @@
 import { describe, afterAll } from 'vitest';
-import { S3Driver } from '@blobpipe/s3';
+import { S3Driver } from '@restrella/blobpipe-s3';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 const S3_BUCKET = process.env.S3_BUCKET;

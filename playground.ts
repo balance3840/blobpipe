@@ -2,8 +2,8 @@ import { Readable } from 'node:stream';
 import { createReadStream } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { LocalDriver } from '@blobpipe/local';
-import { StorageClient, fromUrl } from '@blobpipe/core';
+import { LocalDriver } from '@restrella/blobpipe-local';
+import { StorageClient, fromUrl } from '@restrella/blobpipe';
 
 const rootDir = join(tmpdir(), 'blobpipe-playground');
 

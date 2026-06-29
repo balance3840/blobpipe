@@ -1,7 +1,7 @@
 # Local Driver
 
 ```bash
-npm install @blobpipe/core @blobpipe/local
+npm install @restrella/blobpipe @restrella/blobpipe-local
 ```
 
 Stores objects as files on the local filesystem. No external dependencies, no network calls.
@@ -9,8 +9,8 @@ Stores objects as files on the local filesystem. No external dependencies, no ne
 ## Basic setup
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { LocalDriver } from '@blobpipe/local'
+import { StorageClient } from '@restrella/blobpipe'
+import { LocalDriver } from '@restrella/blobpipe-local'
 
 const storage = new StorageClient(new LocalDriver({
   rootDir: '/var/data/uploads',

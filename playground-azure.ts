@@ -1,7 +1,7 @@
 import { Readable } from 'node:stream';
 import { createReadStream } from 'node:fs';
-import { AzureBlobDriver } from '@blobpipe/azure-blob';
-import { StorageClient, fromUrl } from '@blobpipe/core';
+import { AzureBlobDriver } from '@restrella/blobpipe-azure-blob';
+import { StorageClient, fromUrl } from '@restrella/blobpipe';
 import { DefaultAzureCredential } from '@azure/identity';
 
 const azure = new AzureBlobDriver({

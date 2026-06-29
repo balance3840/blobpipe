@@ -1,18 +1,18 @@
-# @blobpipe/gcs
+# @restrella/blobpipe-gcs
 
 Google Cloud Storage driver for blobpipe.
 
 ## Installation
 
 ```bash
-npm install @blobpipe/gcs @google-cloud/storage
+npm install @restrella/blobpipe-gcs @google-cloud/storage
 ```
 
 ## Usage
 
 ```typescript
-import { StorageClient } from '@blobpipe/core';
-import { GcsDriver } from '@blobpipe/gcs';
+import { StorageClient } from '@restrella/blobpipe';
+import { GcsDriver } from '@restrella/blobpipe-gcs';
 
 // Application Default Credentials (ADC)
 const client = new StorageClient(

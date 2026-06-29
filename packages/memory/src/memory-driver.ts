@@ -1,6 +1,6 @@
 import { Readable } from 'node:stream';
 import { createHash } from 'node:crypto';
-import type { StorageDriver } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
 import type {
   CopyOptions,
   DeleteManyOptions,
@@ -18,8 +18,8 @@ import type {
   StatOptions,
   StorageObject,
   UploadBody,
-} from '@blobpipe/core';
-import { ObjectAlreadyExistsError, ObjectNotFoundError, StorageOperationError } from '@blobpipe/core';
+} from '@restrella/blobpipe';
+import { ObjectAlreadyExistsError, ObjectNotFoundError, StorageOperationError } from '@restrella/blobpipe';
 import type { MemoryDriverConfig } from './types.js';
 
 interface MemoryEntry {

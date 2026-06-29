@@ -1,14 +1,14 @@
 # Google Cloud Storage Driver
 
 ```bash
-npm install @blobpipe/core @blobpipe/gcs
+npm install @restrella/blobpipe @restrella/blobpipe-gcs
 ```
 
 ## Basic setup
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { GcsDriver } from '@blobpipe/gcs'
+import { StorageClient } from '@restrella/blobpipe'
+import { GcsDriver } from '@restrella/blobpipe-gcs'
 
 const storage = new StorageClient(new GcsDriver({
   bucket: 'my-bucket',

@@ -2,12 +2,12 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "@blobpipe/core": ["./packages/core/src/index.ts"],
-      "@blobpipe/s3": ["./packages/s3/src/index.ts"],
-      "@blobpipe/azure-blob": ["./packages/azure-blob/src/index.ts"],
-      "@blobpipe/local": ["./packages/local/src/index.ts"],
-      "@blobpipe/memory": ["./packages/memory/src/index.ts"],
-      "@blobpipe/gcs": ["./packages/gcs/src/index.ts"]
+      "@restrella/blobpipe": ["./packages/core/src/index.ts"],
+      "@restrella/blobpipe-s3": ["./packages/s3/src/index.ts"],
+      "@restrella/blobpipe-azure-blob": ["./packages/azure-blob/src/index.ts"],
+      "@restrella/blobpipe-local": ["./packages/local/src/index.ts"],
+      "@restrella/blobpipe-memory": ["./packages/memory/src/index.ts"],
+      "@restrella/blobpipe-gcs": ["./packages/gcs/src/index.ts"]
     }
   },
   "include": ["playground.ts", "playground-azure.ts", "playground-s3.ts", "playground-memory.ts", "playground-gcs.ts"]

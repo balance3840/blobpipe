@@ -1,14 +1,14 @@
 # Decorators
 
-Decorators wrap a `StorageDriver` and intercept all operations (not just `put()`). They're for infrastructure concerns: retries, metrics, and tracing. Both are exported from `@blobpipe/core`.
+Decorators wrap a `StorageDriver` and intercept all operations (not just `put()`). They're for infrastructure concerns: retries, metrics, and tracing. Both are exported from `@restrella/blobpipe`.
 
 ## RetryingDriver
 
 Wraps any driver with exponential backoff and jitter. Automatically retries transient failures on all operations.
 
 ```typescript
-import { StorageClient, RetryingDriver } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient, RetryingDriver } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const storage = new StorageClient(
   new RetryingDriver(new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' }), {
@@ -58,7 +58,7 @@ For `baseDelayMs: 200` and `maxAttempts: 3`:
 ### Custom shouldRetry
 
 ```typescript
-import { StorageOperationError } from '@blobpipe/core'
+import { StorageOperationError } from '@restrella/blobpipe'
 
 new RetryingDriver(driver, {
   maxAttempts: 4,
@@ -84,8 +84,8 @@ It does **not** retry:
 Wraps any driver and emits an `OperationEvent` after every operation (success or failure). Wire it to your metrics system, OpenTelemetry, or a logger.
 
 ```typescript
-import { StorageClient, InstrumentedDriver } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient, InstrumentedDriver } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const storage = new StorageClient(
   new InstrumentedDriver(new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' }), {
@@ -145,8 +145,8 @@ new InstrumentedDriver(driver, {
 Decorators stack — wrap them in any order:
 
 ```typescript
-import { StorageClient, RetryingDriver, InstrumentedDriver } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient, RetryingDriver, InstrumentedDriver } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const base = new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' })
 

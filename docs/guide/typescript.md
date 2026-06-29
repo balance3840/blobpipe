@@ -5,8 +5,8 @@
 `StorageClient<D>` is generic over the driver type. In most cases TypeScript infers it:
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const storage = new StorageClient(new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' }))
 // storage: StorageClient<S3Driver>
@@ -15,7 +15,7 @@ const storage = new StorageClient(new S3Driver({ bucket: 'my-bucket', region: 'u
 You can use `StorageClient<StorageDriver>` (the base interface) when you want driver-agnostic typing:
 
 ```typescript
-import { StorageClient, type StorageDriver } from '@blobpipe/core'
+import { StorageClient, type StorageDriver } from '@restrella/blobpipe'
 
 function createStorage(driver: StorageDriver): StorageClient<StorageDriver> {
   return new StorageClient(driver)
@@ -27,8 +27,8 @@ function createStorage(driver: StorageDriver): StorageClient<StorageDriver> {
 `getDriver()` gives you back the typed driver if you need a driver-specific API that isn't on `StorageClient`:
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const storage = new StorageClient(new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' }))
 
@@ -43,8 +43,8 @@ Note: accessing the driver directly bypasses the middleware pipeline.
 A common pattern for dependency injection and testing:
 
 ```typescript
-import { StorageClient, type StorageDriver } from '@blobpipe/core'
-import { logUploads, validateMimeType } from '@blobpipe/core'
+import { StorageClient, type StorageDriver } from '@restrella/blobpipe'
+import { logUploads, validateMimeType } from '@restrella/blobpipe'
 
 function createStorageClient(driver: StorageDriver): StorageClient {
   return new StorageClient(driver)
@@ -53,11 +53,11 @@ function createStorageClient(driver: StorageDriver): StorageClient {
 }
 
 // Production
-import { S3Driver } from '@blobpipe/s3'
+import { S3Driver } from '@restrella/blobpipe-s3'
 const prod = createStorageClient(new S3Driver({ bucket: 'prod-bucket', region: 'us-east-1' }))
 
 // Tests
-import { MemoryDriver } from '@blobpipe/memory'
+import { MemoryDriver } from '@restrella/blobpipe-memory'
 const test = createStorageClient(new MemoryDriver())
 ```
 
@@ -72,7 +72,7 @@ type UploadBody = Buffer | Uint8Array | Readable | string
 Use it to type upload utilities:
 
 ```typescript
-import type { UploadBody } from '@blobpipe/core'
+import type { UploadBody } from '@restrella/blobpipe'
 
 async function uploadWithRetry(
   storage: StorageClient,
@@ -86,7 +86,7 @@ async function uploadWithRetry(
 ## PutOptions and PutResult
 
 ```typescript
-import type { PutOptions, PutResult } from '@blobpipe/core'
+import type { PutOptions, PutResult } from '@restrella/blobpipe'
 
 async function upload(key: string, data: UploadBody, opts?: PutOptions): Promise<PutResult> {
   return storage.put(key, data, opts)
@@ -116,7 +116,7 @@ blobpipe is compatible with `"exactOptionalPropertyTypes": true` in your `tsconf
 Custom middleware is typed as `Middleware`:
 
 ```typescript
-import type { Middleware, UploadContext } from '@blobpipe/core'
+import type { Middleware, UploadContext } from '@restrella/blobpipe'
 
 const addTimestamp: Middleware = async (ctx: UploadContext, next) => {
   ctx.options.metadata = {
@@ -130,7 +130,7 @@ const addTimestamp: Middleware = async (ctx: UploadContext, next) => {
 For configurable middleware, use `MiddlewareFactory`:
 
 ```typescript
-import type { MiddlewareFactory } from '@blobpipe/core'
+import type { MiddlewareFactory } from '@restrella/blobpipe'
 
 interface MyOptions {
   prefix: string

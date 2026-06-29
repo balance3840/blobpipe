@@ -1,18 +1,18 @@
-# @blobpipe/local
+# @restrella/blobpipe-local
 
 Local filesystem storage driver for blobpipe — maps object keys to files under a configured root directory.
 
 ## Installation
 
 ```bash
-npm install @blobpipe/local
+npm install @restrella/blobpipe-local
 ```
 
 ## Usage
 
 ```typescript
-import { StorageClient } from '@blobpipe/core';
-import { LocalDriver } from '@blobpipe/local';
+import { StorageClient } from '@restrella/blobpipe';
+import { LocalDriver } from '@restrella/blobpipe-local';
 
 const client = new StorageClient(
   new LocalDriver({

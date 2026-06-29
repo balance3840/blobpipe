@@ -7,5 +7,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   splitting: false,
-  external: ['@blobpipe/core', '@azure/storage-blob', '@azure/core-auth'],
+  external: ['@restrella/blobpipe', '@azure/storage-blob', '@azure/core-auth'],
 });

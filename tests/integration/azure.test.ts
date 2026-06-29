@@ -1,5 +1,5 @@
 import { describe, afterAll } from 'vitest';
-import { AzureBlobDriver } from '@blobpipe/azure-blob';
+import { AzureBlobDriver } from '@restrella/blobpipe-azure-blob';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 const AZURE_CONTAINER = process.env.AZURE_CONTAINER;

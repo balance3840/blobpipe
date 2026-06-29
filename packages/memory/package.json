@@ -1,5 +1,5 @@
 {
-  "name": "@blobpipe/memory",
+  "name": "@restrella/blobpipe-memory",
   "version": "0.1.0",
   "description": "In-memory driver for blobpipe \u2014 no external services, ideal for unit tests.",
   "license": "MIT",
@@ -52,7 +52,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@blobpipe/core": "workspace:*"
+    "@restrella/blobpipe": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.20.0",

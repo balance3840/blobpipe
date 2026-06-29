@@ -47,7 +47,7 @@ importers:
 
   packages/azure-blob:
     dependencies:
-      '@blobpipe/core':
+      '@restrella/blobpipe':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -87,7 +87,7 @@ importers:
 
   packages/gcs:
     dependencies:
-      '@blobpipe/core':
+      '@restrella/blobpipe':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -106,7 +106,7 @@ importers:
 
   packages/local:
     dependencies:
-      '@blobpipe/core':
+      '@restrella/blobpipe':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -122,7 +122,7 @@ importers:
 
   packages/memory:
     dependencies:
-      '@blobpipe/core':
+      '@restrella/blobpipe':
         specifier: workspace:*
         version: link:../core
     devDependencies:
@@ -141,7 +141,7 @@ importers:
 
   packages/s3:
     dependencies:
-      '@blobpipe/core':
+      '@restrella/blobpipe':
         specifier: workspace:*
         version: link:../core
     devDependencies:

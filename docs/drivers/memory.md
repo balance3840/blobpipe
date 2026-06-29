@@ -1,7 +1,7 @@
 # Memory Driver
 
 ```bash
-npm install @blobpipe/core @blobpipe/memory
+npm install @restrella/blobpipe @restrella/blobpipe-memory
 ```
 
 An in-memory `StorageDriver` designed for unit tests. No network calls, no filesystem access, no external dependencies. Data lives in a `Map` and is gone when the process exits.
@@ -9,7 +9,7 @@ An in-memory `StorageDriver` designed for unit tests. No network calls, no files
 ## Basic setup
 
 ```typescript
-import { MemoryDriver } from '@blobpipe/memory'
+import { MemoryDriver } from '@restrella/blobpipe-memory'
 
 const driver = new MemoryDriver()
 ```
@@ -58,8 +58,8 @@ beforeEach(() => {
 
 ```typescript
 import { describe, it, expect, beforeEach } from 'vitest'
-import { StorageClient, ObjectNotFoundError } from '@blobpipe/core'
-import { MemoryDriver } from '@blobpipe/memory'
+import { StorageClient, ObjectNotFoundError } from '@restrella/blobpipe'
+import { MemoryDriver } from '@restrella/blobpipe-memory'
 
 // Use the same factory function your production code uses
 function createStorage(driver = new MemoryDriver()) {

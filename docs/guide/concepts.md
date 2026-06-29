@@ -92,8 +92,8 @@ return async (ctx, next) => {
 Decorators wrap a `StorageDriver` and intercept **all** operations, not just `put()`. They're for infrastructure concerns: retries, metrics, tracing.
 
 ```typescript
-import { RetryingDriver, InstrumentedDriver } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { RetryingDriver, InstrumentedDriver } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const base = new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' })
 

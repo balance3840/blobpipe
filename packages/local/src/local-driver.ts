@@ -4,7 +4,7 @@ import { access, copyFile, mkdir, readdir, rename, rm, stat, writeFile } from 'n
 import { dirname, join, relative, resolve } from 'node:path';
 import { Readable, Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
-import type { StorageDriver } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
 import type {
   CopyOptions,
   DeleteManyOptions,
@@ -21,8 +21,8 @@ import type {
   StatOptions,
   StorageObject,
   UploadBody,
-} from '@blobpipe/core';
-import { InvalidKeyError, ObjectAlreadyExistsError, ObjectNotFoundError, StorageOperationError } from '@blobpipe/core';
+} from '@restrella/blobpipe';
+import { InvalidKeyError, ObjectAlreadyExistsError, ObjectNotFoundError, StorageOperationError } from '@restrella/blobpipe';
 import type { LocalDriverConfig } from './types.js';
 
 async function pLimit<T>(tasks: (() => Promise<T>)[], limit: number): Promise<PromiseSettledResult<T>[]> {

@@ -1,7 +1,7 @@
 import { mkdtempSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { LocalDriver } from '@blobpipe/local';
+import { LocalDriver } from '@restrella/blobpipe-local';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 testDriverContract('LocalDriver', () => {

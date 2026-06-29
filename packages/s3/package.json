@@ -1,5 +1,5 @@
 {
-  "name": "@blobpipe/s3",
+  "name": "@restrella/blobpipe-s3",
   "version": "0.1.0",
   "description": "Amazon S3 (and S3-compatible) driver for blobpipe.",
   "license": "MIT",
@@ -50,7 +50,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@blobpipe/core": "workspace:*"
+    "@restrella/blobpipe": "workspace:*"
   },
   "peerDependencies": {
     "@aws-sdk/client-s3": ">=3.0.0",

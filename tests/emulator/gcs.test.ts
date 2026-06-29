@@ -1,6 +1,6 @@
 import { describe, beforeAll, afterAll } from 'vitest';
 import { Storage } from '@google-cloud/storage';
-import { GcsDriver } from '@blobpipe/gcs';
+import { GcsDriver } from '@restrella/blobpipe-gcs';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 const GCS_EMULATOR_URL = 'http://localhost:4443';

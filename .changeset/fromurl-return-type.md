@@ -1,5 +1,5 @@
 ---
-"@blobpipe/core": major
+"@restrella/blobpipe": major
 ---
 
 **Breaking:** `fromUrl()` now returns `Promise<{ body: Readable; contentType?: string }>` instead of `Promise<Readable>`.

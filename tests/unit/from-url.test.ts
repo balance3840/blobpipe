@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
-import { fromUrl } from '@blobpipe/core';
+import { fromUrl } from '@restrella/blobpipe';
 
 async function collect(stream: NodeJS.ReadableStream): Promise<string> {
   const chunks: Buffer[] = [];

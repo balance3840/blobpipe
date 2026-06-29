@@ -4,7 +4,7 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   resolve: {
     alias: {
-      '@blobpipe/core': fileURLToPath(new URL('../core/src/index.ts', import.meta.url)),
+      '@restrella/blobpipe': fileURLToPath(new URL('../core/src/index.ts', import.meta.url)),
     },
   },
   test: {

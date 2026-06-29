@@ -6,8 +6,8 @@ import {
   maxFileSize,
   validateMimeType,
   MiddlewareRejectionError,
-} from '@blobpipe/core';
-import { MemoryDriver } from '@blobpipe/memory';
+} from '@restrella/blobpipe';
+import { MemoryDriver } from '@restrella/blobpipe-memory';
 
 function makeClient() {
   return { driver: new MemoryDriver(), client: new StorageClient(new MemoryDriver()) };

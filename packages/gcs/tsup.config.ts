@@ -7,5 +7,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   splitting: false,
-  external: ['@blobpipe/core', '@google-cloud/storage'],
+  external: ['@restrella/blobpipe', '@google-cloud/storage'],
 });

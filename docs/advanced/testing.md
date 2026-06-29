@@ -8,7 +8,7 @@ The key is a factory function that accepts any `StorageDriver`. Production code 
 
 ```typescript
 // src/storage.ts
-import { StorageClient, type StorageDriver, logUploads, validateMimeType, maxFileSize } from '@blobpipe/core'
+import { StorageClient, type StorageDriver, logUploads, validateMimeType, maxFileSize } from '@restrella/blobpipe'
 
 export function createStorageClient(driver: StorageDriver): StorageClient {
   return new StorageClient(driver)
@@ -20,13 +20,13 @@ export function createStorageClient(driver: StorageDriver): StorageClient {
 
 ```typescript
 // Production
-import { S3Driver } from '@blobpipe/s3'
+import { S3Driver } from '@restrella/blobpipe-s3'
 export const storage = createStorageClient(new S3Driver({ bucket: 'prod', region: 'us-east-1' }))
 ```
 
 ```typescript
 // Tests
-import { MemoryDriver } from '@blobpipe/memory'
+import { MemoryDriver } from '@restrella/blobpipe-memory'
 const driver = new MemoryDriver()
 const storage = createStorageClient(driver)
 ```
@@ -35,8 +35,8 @@ const storage = createStorageClient(driver)
 
 ```typescript
 import { describe, it, expect, beforeEach } from 'vitest'
-import { StorageClient, ObjectNotFoundError, MiddlewareRejectionError } from '@blobpipe/core'
-import { MemoryDriver } from '@blobpipe/memory'
+import { StorageClient, ObjectNotFoundError, MiddlewareRejectionError } from '@restrella/blobpipe'
+import { MemoryDriver } from '@restrella/blobpipe-memory'
 import { createStorageClient } from '../src/storage'
 
 describe('StorageClient', () => {
@@ -121,8 +121,8 @@ describe('StorageClient', () => {
 ## Jest
 
 ```typescript
-import { StorageClient, ObjectNotFoundError } from '@blobpipe/core'
-import { MemoryDriver } from '@blobpipe/memory'
+import { StorageClient, ObjectNotFoundError } from '@restrella/blobpipe'
+import { MemoryDriver } from '@restrella/blobpipe-memory'
 import { createStorageClient } from '../src/storage'
 
 describe('StorageClient', () => {

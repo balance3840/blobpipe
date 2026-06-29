@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { InstrumentedDriver, ObjectNotFoundError } from '@blobpipe/core';
-import { MemoryDriver } from '@blobpipe/memory';
+import { InstrumentedDriver, ObjectNotFoundError } from '@restrella/blobpipe';
+import { MemoryDriver } from '@restrella/blobpipe-memory';
 
 describe('InstrumentedDriver', () => {
   it('includes inner driver name in its own name', () => {

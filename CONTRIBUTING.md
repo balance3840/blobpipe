@@ -69,7 +69,7 @@ pnpm build   # tsup — emits dist/ in each package with ESM + CJS + .d.ts
 ## Adding a new driver
 
 1. Create `packages/<name>/` and copy the structure from `packages/memory/`.
-2. Implement `StorageDriver` from `@blobpipe/core`.
+2. Implement `StorageDriver` from `@restrella/blobpipe`.
 3. Wire it as a subpath export in the root `package.json` (`"blobpipe/<name>": ...`).
 4. Add the contract test: `testDriverContract('<name>', () => new YourDriver(…))`.
 5. If the provider has an emulator, add `tests/emulator/<name>.test.ts`.

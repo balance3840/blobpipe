@@ -1,7 +1,7 @@
 import { Readable } from 'node:stream';
 import { createReadStream } from 'node:fs';
-import { GcsDriver } from '@blobpipe/gcs';
-import { StorageClient, RetryingDriver, logUploads, maxFileSize, validateMimeType, MiddlewareRejectionError, fromUrl } from '@blobpipe/core';
+import { GcsDriver } from '@restrella/blobpipe-gcs';
+import { StorageClient, RetryingDriver, logUploads, maxFileSize, validateMimeType, MiddlewareRejectionError, fromUrl } from '@restrella/blobpipe';
 
 // ─── GCS / Fake GCS Server setup ─────────────────────────────────────────────
 //

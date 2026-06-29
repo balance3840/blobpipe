@@ -12,23 +12,23 @@ Install the core package and the driver for your storage provider:
 ::: code-group
 
 ```bash [S3 / R2 / MinIO]
-npm install @blobpipe/core @blobpipe/s3
+npm install @restrella/blobpipe @restrella/blobpipe-s3
 ```
 
 ```bash [Google Cloud Storage]
-npm install @blobpipe/core @blobpipe/gcs
+npm install @restrella/blobpipe @restrella/blobpipe-gcs
 ```
 
 ```bash [Azure Blob Storage]
-npm install @blobpipe/core @blobpipe/azure-blob
+npm install @restrella/blobpipe @restrella/blobpipe-azure-blob
 ```
 
 ```bash [Local disk]
-npm install @blobpipe/core @blobpipe/local
+npm install @restrella/blobpipe @restrella/blobpipe-local
 ```
 
 ```bash [In-memory (tests)]
-npm install @blobpipe/core @blobpipe/memory
+npm install @restrella/blobpipe @restrella/blobpipe-memory
 ```
 
 :::
@@ -38,8 +38,8 @@ npm install @blobpipe/core @blobpipe/memory
 This example runs with no cloud account — just your local filesystem:
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { LocalDriver } from '@blobpipe/local'
+import { StorageClient } from '@restrella/blobpipe'
+import { LocalDriver } from '@restrella/blobpipe-local'
 
 const driver = new LocalDriver({ rootDir: '/tmp/my-uploads' })
 const storage = new StorageClient(driver)
@@ -69,8 +69,8 @@ await storage.delete('hello.txt')
 The application code above is unchanged — only the driver construction changes:
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const driver = new S3Driver({
   bucket: 'my-bucket',
@@ -89,8 +89,8 @@ Credentials are picked up from the standard AWS credential chain (environment va
 Middleware runs on every `put()`. Stack it with `.use()`:
 
 ```typescript
-import { StorageClient, validateMimeType, maxFileSize, logUploads } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient, validateMimeType, maxFileSize, logUploads } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const storage = new StorageClient(new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' }))
   .use(validateMimeType({ allowed: ['image/png', 'image/jpeg', 'image/webp'] }))

@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { Readable } from 'node:stream';
-import type { StorageDriver } from '@blobpipe/core';
-import { ObjectAlreadyExistsError, ObjectNotFoundError } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
+import { ObjectAlreadyExistsError, ObjectNotFoundError } from '@restrella/blobpipe';
 
 async function collect(stream: Readable): Promise<string> {
   const chunks: Buffer[] = [];

@@ -1,18 +1,18 @@
-# @blobpipe/memory
+# @restrella/blobpipe-memory
 
 In-memory storage driver for blobpipe — no network calls, no filesystem access, ideal for unit tests.
 
 ## Installation
 
 ```bash
-npm install @blobpipe/memory
+npm install @restrella/blobpipe-memory
 ```
 
 ## Usage
 
 ```typescript
-import { StorageClient } from '@blobpipe/core';
-import { MemoryDriver } from '@blobpipe/memory';
+import { StorageClient } from '@restrella/blobpipe';
+import { MemoryDriver } from '@restrella/blobpipe-memory';
 
 const client = new StorageClient(new MemoryDriver());
 

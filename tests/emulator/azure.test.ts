@@ -1,5 +1,5 @@
 import { describe } from 'vitest';
-import { AzureBlobDriver } from '@blobpipe/azure-blob';
+import { AzureBlobDriver } from '@restrella/blobpipe-azure-blob';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 const AZURITE_URL = 'http://127.0.0.1:10000/devstoreaccount1';

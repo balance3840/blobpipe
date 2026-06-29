@@ -1,6 +1,6 @@
 # Errors
 
-All errors extend `StorageError`. Import from `@blobpipe/core`.
+All errors extend `StorageError`. Import from `@restrella/blobpipe`.
 
 ```typescript
 import {
@@ -12,7 +12,7 @@ import {
   StorageOperationError,
   DriverConfigurationError,
   MiddlewareRejectionError,
-} from '@blobpipe/core'
+} from '@restrella/blobpipe'
 ```
 
 ## StorageError (abstract)
@@ -54,7 +54,7 @@ class ObjectNotFoundError extends StorageError {
 ```
 
 ```typescript
-import { ObjectNotFoundError } from '@blobpipe/core'
+import { ObjectNotFoundError } from '@restrella/blobpipe'
 
 try {
   const stream = await storage.get('missing/file.jpg')
@@ -83,7 +83,7 @@ class ObjectAlreadyExistsError extends StorageError {
 ```
 
 ```typescript
-import { ObjectAlreadyExistsError } from '@blobpipe/core'
+import { ObjectAlreadyExistsError } from '@restrella/blobpipe'
 
 try {
   await storage.put('config.json', data, {
@@ -113,7 +113,7 @@ class AccessDeniedError extends StorageError {
 ```
 
 ```typescript
-import { AccessDeniedError } from '@blobpipe/core'
+import { AccessDeniedError } from '@restrella/blobpipe'
 
 try {
   await storage.get('private/secret.pdf')
@@ -166,7 +166,7 @@ class StorageOperationError extends StorageError {
 ```
 
 ```typescript
-import { StorageOperationError } from '@blobpipe/core'
+import { StorageOperationError } from '@restrella/blobpipe'
 
 try {
   await storage.put('file.jpg', data, { contentType: 'image/jpeg' })
@@ -191,7 +191,7 @@ class DriverConfigurationError extends StorageError {
 ```
 
 ```typescript
-import { DriverConfigurationError } from '@blobpipe/core'
+import { DriverConfigurationError } from '@restrella/blobpipe'
 
 try {
   const driver = new S3Driver({ bucket: '', region: 'us-east-1' }) // invalid
@@ -225,7 +225,7 @@ Built-in codes:
 | `FILE_TOO_LARGE` | `maxFileSize` — body exceeds `maxBytes` |
 
 ```typescript
-import { MiddlewareRejectionError } from '@blobpipe/core'
+import { MiddlewareRejectionError } from '@restrella/blobpipe'
 
 try {
   await storage.put('file.exe', data, { contentType: 'application/octet-stream' })

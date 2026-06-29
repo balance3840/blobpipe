@@ -5,7 +5,7 @@
 Automatically tags every upload with the current ISO timestamp:
 
 ```typescript
-import type { Middleware } from '@blobpipe/core'
+import type { Middleware } from '@restrella/blobpipe'
 
 const addTimestampMetadata: Middleware = async (ctx, next) => {
   ctx.options.metadata = {
@@ -25,8 +25,8 @@ After `put()`, the object's metadata will contain `{ uploadedAt: '2024-01-15T10:
 An "around" middleware that intercepts the body, scans it, and only calls `next()` if the scan passes:
 
 ```typescript
-import type { Middleware } from '@blobpipe/core'
-import { MiddlewareRejectionError } from '@blobpipe/core'
+import type { Middleware } from '@restrella/blobpipe'
+import { MiddlewareRejectionError } from '@restrella/blobpipe'
 import { Readable } from 'node:stream'
 
 async function scanBuffer(buf: Buffer): Promise<{ clean: boolean; reason?: string }> {
@@ -34,7 +34,7 @@ async function scanBuffer(buf: Buffer): Promise<{ clean: boolean; reason?: strin
   return { clean: true }
 }
 
-async function readBody(body: import('@blobpipe/core').UploadBody): Promise<Buffer> {
+async function readBody(body: import('@restrella/blobpipe').UploadBody): Promise<Buffer> {
   if (Buffer.isBuffer(body)) return body
   if (body instanceof Uint8Array) return Buffer.from(body)
   if (typeof body === 'string') return Buffer.from(body, 'utf8')
@@ -67,10 +67,10 @@ storage.use(virusScan)
 Apply middleware only when certain conditions are met:
 
 ```typescript
-import type { MiddlewareFactory, Middleware } from '@blobpipe/core'
+import type { MiddlewareFactory, Middleware } from '@restrella/blobpipe'
 
 interface ConditionalOptions {
-  when: (ctx: import('@blobpipe/core').UploadContext) => boolean
+  when: (ctx: import('@restrella/blobpipe').UploadContext) => boolean
   middleware: Middleware
 }
 
@@ -97,7 +97,7 @@ storage.use(
 Pass per-request data from the caller into the middleware chain via `ctx.locals`:
 
 ```typescript
-import type { Middleware } from '@blobpipe/core'
+import type { Middleware } from '@restrella/blobpipe'
 
 // Middleware reads userId from locals and attaches it as metadata
 const attachUserId: Middleware = async (ctx, next) => {
@@ -123,7 +123,7 @@ await storage.put('avatar.jpg', buffer, {
 Post-processing that runs after the driver has stored the file:
 
 ```typescript
-import type { Middleware } from '@blobpipe/core'
+import type { Middleware } from '@restrella/blobpipe'
 
 const webhookOnUpload: Middleware = async (ctx, next) => {
   await next()

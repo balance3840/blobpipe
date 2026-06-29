@@ -1,5 +1,5 @@
 import { Readable } from 'node:stream';
-import { MemoryDriver } from '@blobpipe/memory';
+import { MemoryDriver } from '@restrella/blobpipe-memory';
 import {
     StorageClient,
     RetryingDriver,
@@ -7,7 +7,7 @@ import {
     maxFileSize,
     validateMimeType,
     MiddlewareRejectionError,
-} from '@blobpipe/core';
+} from '@restrella/blobpipe';
 
 const memory = new MemoryDriver({ simulatedLatencyMs: 10 });
 const client = new StorageClient(memory);

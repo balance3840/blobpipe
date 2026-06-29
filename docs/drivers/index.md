@@ -4,11 +4,11 @@ Each driver ships as its own package. Install only what you use.
 
 | Package | Provider |
 |---|---|
-| `@blobpipe/s3` | AWS S3, Cloudflare R2, MinIO, DigitalOcean Spaces, Backblaze B2 |
-| `@blobpipe/gcs` | Google Cloud Storage |
-| `@blobpipe/azure-blob` | Azure Blob Storage |
-| `@blobpipe/local` | Local filesystem |
-| `@blobpipe/memory` | In-memory (tests only) |
+| `@restrella/blobpipe-s3` | AWS S3, Cloudflare R2, MinIO, DigitalOcean Spaces, Backblaze B2 |
+| `@restrella/blobpipe-gcs` | Google Cloud Storage |
+| `@restrella/blobpipe-azure-blob` | Azure Blob Storage |
+| `@restrella/blobpipe-local` | Local filesystem |
+| `@restrella/blobpipe-memory` | In-memory (tests only) |
 
 ## Feature matrix
 

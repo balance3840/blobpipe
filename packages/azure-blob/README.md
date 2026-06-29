@@ -1,11 +1,11 @@
-# @blobpipe/azure-blob
+# @restrella/blobpipe-azure-blob
 
 Azure Blob Storage driver for blobpipe.
 
 ## Installation
 
 ```bash
-npm install @blobpipe/azure-blob @azure/storage-blob
+npm install @restrella/blobpipe-azure-blob @azure/storage-blob
 # For token-credential auth (recommended for production):
 npm install @azure/identity
 ```
@@ -13,8 +13,8 @@ npm install @azure/identity
 ## Usage
 
 ```typescript
-import { StorageClient } from '@blobpipe/core';
-import { AzureBlobDriver } from '@blobpipe/azure-blob';
+import { StorageClient } from '@restrella/blobpipe';
+import { AzureBlobDriver } from '@restrella/blobpipe-azure-blob';
 
 // Connection string
 const client = new StorageClient(

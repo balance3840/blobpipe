@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { Readable, Transform } from 'node:stream';
 import { pipeline } from 'node:stream/promises';
 import { Storage, File as GCSFile } from '@google-cloud/storage';
-import type { StorageDriver } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
 import type {
   CopyOptions,
   DeleteManyOptions,
@@ -19,8 +19,8 @@ import type {
   StatOptions,
   StorageObject,
   UploadBody,
-} from '@blobpipe/core';
-import { AccessDeniedError, ObjectAlreadyExistsError, ObjectNotFoundError, StorageOperationError } from '@blobpipe/core';
+} from '@restrella/blobpipe';
+import { AccessDeniedError, ObjectAlreadyExistsError, ObjectNotFoundError, StorageOperationError } from '@restrella/blobpipe';
 import type { GcsDriverConfig } from './types.js';
 
 function isNotFoundError(err: unknown): boolean {

@@ -1,5 +1,5 @@
 import { describe, afterAll } from 'vitest';
-import { GcsDriver } from '@blobpipe/gcs';
+import { GcsDriver } from '@restrella/blobpipe-gcs';
 import { testDriverContract } from '../helpers/driver-contract.js';
 
 const GCS_BUCKET = process.env.GCS_BUCKET;

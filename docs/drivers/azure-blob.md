@@ -1,14 +1,14 @@
 # Azure Blob Storage Driver
 
 ```bash
-npm install @blobpipe/core @blobpipe/azure-blob
+npm install @restrella/blobpipe @restrella/blobpipe-azure-blob
 ```
 
 ## Basic setup
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { AzureBlobDriver } from '@blobpipe/azure-blob'
+import { StorageClient } from '@restrella/blobpipe'
+import { AzureBlobDriver } from '@restrella/blobpipe-azure-blob'
 
 const storage = new StorageClient(new AzureBlobDriver({
   containerName: 'my-container',

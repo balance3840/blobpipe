@@ -23,7 +23,7 @@ import {
 } from '@aws-sdk/client-s3';
 import { Upload } from '@aws-sdk/lib-storage';
 import { getSignedUrl as awsGetSignedUrl } from '@aws-sdk/s3-request-presigner';
-import type { StorageDriver } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
 import type {
   CopyOptions,
   DeleteManyOptions,
@@ -40,13 +40,13 @@ import type {
   StatOptions,
   StorageObject,
   UploadBody,
-} from '@blobpipe/core';
+} from '@restrella/blobpipe';
 import {
   AccessDeniedError,
   ObjectAlreadyExistsError,
   ObjectNotFoundError,
   StorageOperationError,
-} from '@blobpipe/core';
+} from '@restrella/blobpipe';
 import type { S3DriverConfig } from './types.js';
 
 function isNotFoundError(err: unknown): boolean {

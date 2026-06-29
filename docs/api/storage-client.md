@@ -1,7 +1,7 @@
 # StorageClient
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
+import { StorageClient } from '@restrella/blobpipe'
 ```
 
 The main entry point. Composes a `StorageDriver` with an ordered middleware pipeline.
@@ -13,8 +13,8 @@ new StorageClient<D extends StorageDriver>(driver: D, middlewares?: Middleware[]
 ```
 
 ```typescript
-import { StorageClient } from '@blobpipe/core'
-import { S3Driver } from '@blobpipe/s3'
+import { StorageClient } from '@restrella/blobpipe'
+import { S3Driver } from '@restrella/blobpipe-s3'
 
 const storage = new StorageClient(new S3Driver({ bucket: 'my-bucket', region: 'us-east-1' }))
 ```

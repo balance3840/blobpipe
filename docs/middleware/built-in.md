@@ -1,13 +1,13 @@
 # Built-in Middleware
 
-All built-in middleware is exported from `@blobpipe/core`.
+All built-in middleware is exported from `@restrella/blobpipe`.
 
 ## validateMimeType
 
 Rejects uploads whose declared `contentType` is not in an allowed list.
 
 ```typescript
-import { validateMimeType } from '@blobpipe/core'
+import { validateMimeType } from '@restrella/blobpipe'
 
 storage.use(validateMimeType({ allowed: ['image/png', 'image/jpeg', 'image/webp'] }))
 ```
@@ -27,7 +27,7 @@ This middleware validates the **declared** content type only — it does not rea
 :::
 
 ```typescript
-import { sniffMimeType, validateMimeType } from '@blobpipe/core'
+import { sniffMimeType, validateMimeType } from '@restrella/blobpipe'
 
 storage
   .use(sniffMimeType())                                          // detects actual type from bytes
@@ -41,7 +41,7 @@ storage
 Rejects uploads that exceed a byte limit.
 
 ```typescript
-import { maxFileSize } from '@blobpipe/core'
+import { maxFileSize } from '@restrella/blobpipe'
 
 storage.use(maxFileSize({ maxBytes: 10 * 1024 * 1024 })) // 10 MB
 ```
@@ -63,7 +63,7 @@ storage.use(maxFileSize({ maxBytes: 10 * 1024 * 1024 })) // 10 MB
 Logs the outcome of every upload. Runs as an "around" middleware — calls `next()` first, then reads `ctx.result` to log success, or catches and re-throws to log failures.
 
 ```typescript
-import { logUploads } from '@blobpipe/core'
+import { logUploads } from '@restrella/blobpipe'
 
 // Text format (default)
 storage.use(logUploads())
@@ -113,7 +113,7 @@ npm install file-type
 ```
 
 ```typescript
-import { sniffMimeType } from '@blobpipe/core'
+import { sniffMimeType } from '@restrella/blobpipe'
 
 storage.use(sniffMimeType())
 ```

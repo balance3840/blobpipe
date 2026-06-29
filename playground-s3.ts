@@ -1,6 +1,6 @@
 import { Readable } from 'node:stream';
 import { createReadStream } from 'node:fs';
-import { S3Driver } from '@blobpipe/s3';
+import { S3Driver } from '@restrella/blobpipe-s3';
 import {
     StorageClient,
     RetryingDriver,
@@ -9,7 +9,7 @@ import {
     validateMimeType,
     MiddlewareRejectionError,
     fromUrl,
-} from '@blobpipe/core';
+} from '@restrella/blobpipe';
 
 // ─── S3 / MinIO setup ────────────────────────────────────────────────────────
 // Default config targets MinIO running locally via Docker:

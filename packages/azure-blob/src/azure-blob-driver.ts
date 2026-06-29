@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { Readable } from 'node:stream';
-import type { StorageDriver } from '@blobpipe/core';
+import type { StorageDriver } from '@restrella/blobpipe';
 import type {
   CopyOptions,
   DeleteManyOptions,
@@ -17,13 +17,13 @@ import type {
   StatOptions,
   StorageObject,
   UploadBody,
-} from '@blobpipe/core';
+} from '@restrella/blobpipe';
 import {
   AccessDeniedError,
   ObjectAlreadyExistsError,
   ObjectNotFoundError,
   StorageOperationError,
-} from '@blobpipe/core';
+} from '@restrella/blobpipe';
 import type { AzureBlobAuth, AzureBlobDriverConfig } from './types.js';
 import {
   BlobSASPermissions,

@@ -7,5 +7,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   splitting: false,
-  external: ['@blobpipe/core'],
+  external: ['@restrella/blobpipe'],
 });

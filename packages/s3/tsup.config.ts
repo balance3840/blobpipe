@@ -7,5 +7,5 @@ export default defineConfig({
   sourcemap: true,
   clean: true,
   splitting: false,
-  external: ['@blobpipe/core', '@aws-sdk/client-s3', '@aws-sdk/s3-request-presigner'],
+  external: ['@restrella/blobpipe', '@aws-sdk/client-s3', '@aws-sdk/s3-request-presigner'],
 });
