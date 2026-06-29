@@ -1,6 +1,6 @@
 {
   "name": "@restrella/blobpipe-azure-blob",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Azure Blob Storage driver for blobpipe.",
   "license": "MIT",
   "type": "module",

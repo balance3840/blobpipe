@@ -1,6 +1,6 @@
 {
   "name": "@restrella/blobpipe-s3",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Amazon S3 (and S3-compatible) driver for blobpipe.",
   "license": "MIT",
   "type": "module",

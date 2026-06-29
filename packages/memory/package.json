@@ -1,7 +1,7 @@
 {
   "name": "@restrella/blobpipe-memory",
-  "version": "0.1.0",
-  "description": "In-memory driver for blobpipe \u2014 no external services, ideal for unit tests.",
+  "version": "0.1.1",
+  "description": "In-memory driver for blobpipe — no external services, ideal for unit tests.",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",

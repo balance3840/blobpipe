@@ -1,7 +1,7 @@
 {
   "name": "@restrella/blobpipe",
-  "version": "0.1.0",
-  "description": "Core abstractions for blobpipe \u2014 types, StorageClient, middleware, errors, and utilities.",
+  "version": "1.0.0",
+  "description": "Core abstractions for blobpipe — types, StorageClient, middleware, errors, and utilities.",
   "license": "MIT",
   "type": "module",
   "main": "./dist/index.cjs",
